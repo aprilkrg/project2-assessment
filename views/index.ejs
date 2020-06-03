@@ -1,11 +1,33 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title>Unit 2 Assessment</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <h1>To Do List</h1>
+    <% if (todos.length) { %>
+    <ul>
+      <% todos.forEach(function(t) { %>
+        <li>
+        <%= t.todos %>
+        - 
+        <%= t.done ? 'done' : 'not done' %>
+        </li>
+      <% }); %>
+    </ul>
+    <% } else { %>
+    <h3>No Todos Yet</h3>
+    <% } %>
+
+    <hr>
+      <form action="/todos" method="POST">
+        <input type="text" name="todo" required="true">
+        <button type="submit">ADD TODO</button>
+      </form>
+    <hr>
+
+
+
   </body>
 </html>
