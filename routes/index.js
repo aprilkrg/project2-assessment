@@ -13,8 +13,10 @@ router.get('/', function(req, res, next) {
 
 router.post('/todos', function(req, res, next) {
   //res.send('this is a resource');
-  todos.push(req.body.todo);
+  req.body.done = false;
+  todos.push(req.body);
   res.redirect('/');
+  console.log(todos, '<------------- CONSOLE LOG');
 });
 
 module.exports = router;
